@@ -1,0 +1,40 @@
+<html lang="en">
+	<head>
+		<% include ../partials/head %>
+	</head>
+	<body>
+		<h1>Profile of <%= name %></h1>
+
+		<h2>About:<%= about %></h2>
+
+		<% for(var index in images) { %>
+			<br>
+			<img src="<%= images[index].imagePath %>" style="height:100px">
+			<h3><%= images[index].caption %><H3>
+			<h4>Comments:</h4>
+			<% if(images[index].comments){ for(var commentIndex in images[index].comments){ %>
+				<li><a href="/profile?name= <%= images[index].comments[commentIndex].name %>"> <%= images[index].comments[commentIndex].name %></a> : 
+					<%= images[index].comments[commentIndex].comment %></li>
+			<% }} %>
+
+			<br>
+			<form action="/api/comment" method="post">
+				<label>comment</label><input type="string" name="comment">
+				<label>name</label><input type="string" name="userNameWhoCommented">
+				<label>password</label><input type="password" name="password">
+				<input type="hidden" name="userNameWhoReceived" value="<%= name %>">
+				<input type="hidden" name="imagePath" value="<%= images[index].imagePath %>">
+
+				<button type="submit">Submit</button>
+			</form>
+
+
+		<% } %>
+
+		<br>
+
+		<a href="/uploadImage">Upload an Image</a>
+
+
+	</body>
+</html>

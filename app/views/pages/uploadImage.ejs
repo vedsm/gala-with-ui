@@ -1,0 +1,17 @@
+<html lang="en">
+	<head>
+		<% include ../partials/head %>
+	</head>
+	<body>
+		<h2>Upload an image>
+
+		<form action="/api/upload" method="post" enctype="multipart/form-data">
+			<label>name</label><input type="string" name="name"> 
+			<label>password</label><input type="password" name="password"> 
+			<label>caption</label><input type="string" name="caption"> 
+			<label>File</label><input type="file" name="fileToUpload">
+
+			<button type="submit">Submit</button>
+		</form> 
+	</body>
+</html>

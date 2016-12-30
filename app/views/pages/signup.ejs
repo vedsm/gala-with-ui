@@ -1,0 +1,17 @@
+<html lang='en'>
+	<head>
+		<% include ../partials/head %>
+	</head>
+	<body>
+		<h1>SignUp</h1>
+
+		<form action="/api/user" method="post">
+			<label>name</label><input type="string" name="name">
+			<label>password</label><input type="string" name="password">
+			<label>about</label><input type="string" name="about">
+
+			<button type="submit">Submit</button>
+		</form>
+
+	</body>
+</html>
